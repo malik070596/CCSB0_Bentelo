@@ -52,6 +52,8 @@ namespace CCSB_Bentelo
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
