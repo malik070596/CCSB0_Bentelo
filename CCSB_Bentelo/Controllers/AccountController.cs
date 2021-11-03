@@ -16,11 +16,11 @@ namespace CCSB_Bentelo.Controllers
         private readonly ApplicationDbContext _db;
         UserManager<ApplicationUser> _userManager;
         SignInManager<ApplicationUser> _signInManager;
-        RoleManager<ApplicationUser> _roleManager;
+        RoleManager<IdentityRole> _roleManager;
         public AccountController(ApplicationDbContext db,
                     UserManager<ApplicationUser> userManager,
                     SignInManager<ApplicationUser> signInManager,
-                    RoleManager<ApplicationUser> roleManager)
+                    RoleManager<IdentityRole> roleManager)
         {
             _db = db;
             _roleManager = roleManager;
@@ -45,7 +45,7 @@ namespace CCSB_Bentelo.Controllers
                     MiddelName = model.MiddleName,
                     LastName = model.LastName
                 };
-                var result = await _userManager.CreateAsync(user, model.Password);
+                var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
                     //Assign role to user and log the user in and redirect to the homepage
@@ -54,10 +54,7 @@ namespace CCSB_Bentelo.Controllers
                     return RedirectToAction("Index", "Home");
                 }
                 // Add all errors to the modelstate
-                foreach (var error in result.Errors)
-                {
-                    ModelState.AddModelError("", error.Description);
-                }
+               
             }
             return View();
         }
@@ -66,10 +63,12 @@ namespace CCSB_Bentelo.Controllers
             //Create all roles if role admin not exists
             if (!_roleManager.RoleExistsAsync(Helper.Admin).GetAwaiter().GetResult())
             {
+
                 await _roleManager.CreateAsync(new IdentityRole(Helper.Admin));
                 await _roleManager.CreateAsync(new IdentityRole(Helper.Klant));
             }
             return View();
+            
         }
     }
 }

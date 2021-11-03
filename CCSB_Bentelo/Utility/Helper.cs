@@ -12,14 +12,14 @@ namespace CCSB_Bentelo.Utility
         public static readonly string Klant = "Klant";
 
         public static List<SelectListItem> GetRolesForDropDown(bool isAdmin)
-            {
+        {
             var items = new List<SelectListItem>
             {
                 new SelectListItem{Value = Helper.Admin , Text = Helper.Admin},
                 new SelectListItem{Value = Helper.Klant , Text = Helper.Klant}
             };
             return items.OrderBy(s => s.Text).ToList();
-            }
+        }
 
     }
 }
