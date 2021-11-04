@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CCSB_Bentelo.Controllers
 {
-    
+
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -58,7 +58,7 @@ namespace CCSB_Bentelo.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-               
+
             }
             return View();
         }
@@ -72,7 +72,7 @@ namespace CCSB_Bentelo.Controllers
                 await _roleManager.CreateAsync(new IdentityRole(Helper.Klant));
             }
             return View();
-            
+
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -85,12 +85,13 @@ namespace CCSB_Bentelo.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
+                result.
                 ModelState.AddModelError("", "Inloggen mislukt");
             }
-            return View();
+            return View(model);
         }
-    [HttpPost]
-    public async Task<IActionResult> Logoff()
+        [HttpPost]
+        public async Task<IActionResult> Logoff()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");
