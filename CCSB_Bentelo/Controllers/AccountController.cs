@@ -80,12 +80,16 @@ namespace CCSB_Bentelo.Controllers
         {
             if (ModelState.IsValid)
             {
+                //ApplicationUser user = await _userManager.FindByEmailAsync(model.Email);
+               // await _signInManager.SignInAsync(user, isPersistent: false);
+
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Home");
-                }
-                result.
+              }
+                
+
                 ModelState.AddModelError("", "Inloggen mislukt");
             }
             return View(model);
