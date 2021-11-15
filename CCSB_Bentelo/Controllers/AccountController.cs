@@ -45,7 +45,7 @@ namespace CCSB_Bentelo.Controllers
                     MiddelName = model.MiddleName,
                     LastName = model.LastName
                 };
-                var result = await _userManager.CreateAsync(user);
+                var result = await _userManager.CreateAsync(user , model.Password);
                 if (result.Succeeded)
                 {
                     //Assign role to user and log the user in and redirect to the homepage
