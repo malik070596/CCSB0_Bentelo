@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CCSB_Bentelo.Models;
 using Microsoft.AspNetCore.Identity;
+using CCSB_Bentelo.Services;
 
 namespace CCSB_Bentelo
 {
@@ -29,6 +30,7 @@ namespace CCSB_Bentelo
             services.AddDbContext<ApplicationDbContext>(options => 
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllersWithViews();
+            services.AddTransient<IAppointmentService, AppointmentService>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             

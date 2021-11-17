@@ -42,7 +42,7 @@ namespace CCSB_Bentelo.Controllers
                     UserName = model.Email,
                     Email = model.Email,
                     FirstName = model.FirstName,
-                    MiddelName = model.MiddleName,
+                    MiddleName = model.MiddleName,
                     LastName = model.LastName
                 };
                 var result = await _userManager.CreateAsync(user , model.Password);

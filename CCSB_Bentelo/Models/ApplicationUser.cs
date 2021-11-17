@@ -9,20 +9,20 @@ namespace CCSB_Bentelo.Models
     public class ApplicationUser: IdentityUser
     {
         public string FirstName { get; set; }
-        public string MiddelName { get; set; }
+        public string MiddleName { get; set; }
         public string LastName { get; set; }
         public string FullName
         {
             get
             {
-                if (string.IsNullOrEmpty(MiddelName))
+                if (string.IsNullOrEmpty(MiddleName))
                 {
                     return FirstName + " " + LastName; 
             
                 }
                 else
                 {
-                    return FirstName + " " + MiddelName + " " + LastName; 
+                    return FirstName + " " + MiddleName + " " + LastName; 
                 }
             }
         } 
