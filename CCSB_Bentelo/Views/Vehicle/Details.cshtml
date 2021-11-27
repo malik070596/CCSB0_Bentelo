@@ -1,0 +1,120 @@
+﻿@model CCSB_Bentelo.Models.Vehicle
+<div>
+    <div class="loginPage">
+        <div class="loginContainer">
+
+            <div>
+                <h4>Vehicle</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-5">
+                        <label>VoertuigMerk</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.VehicleBrand)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>VoertuigSoort</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.VehicleType)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Lengte</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Length)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>VoertuigStatus</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.VehicleKind)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Voertuig Kenteken</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.LicensePlate)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Kleur</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Color)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>BouwJaar</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Year)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Aantal Slaapplatsen</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Beds)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Fietsdrager</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Bicycle)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Airco</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Airco)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Kilometerstand</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Km)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Aantal PK's</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Power)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Soort</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Type)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Trekhaak</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Tow)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Ledig gewicht</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Weight)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Vulwatertank</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.Water)
+                    </dd>
+                    <dt class="col-sm-5">
+                        <label>Klant</label>
+                    </dt>
+                    <dd class="col-sm-5">
+                        @Html.DisplayFor(model => model.ApplicationUser.Id)
+                    </dd>
+                </dl>
+            </div>
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.VehicleId">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

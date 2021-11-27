@@ -1,28 +1,33 @@
-﻿@inject Microsoft.AspNetCore.Identity.SignInManager<CCSB_Bentelo.Models.ApplicationUser> signInManager
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<CCSB_Bentelo.Models.ApplicationUser> signinManager
 
-@if (signInManager.IsSignedIn(User))
+
+@if (signinManager.IsSignedIn(User) && User.IsInRole("Beheerder"))
 {
-    <form method="post" id="logoutForm" asp-action="logoff" asp-controller="Account">
-        <ul class="nav navbar-nav">
-            <li class="text-black-50 nav-link">Welkom @User.Identity.Name</li>
-            <li class="text-black-50">
-                <a class="text-black-50 nav-link" href="javascript:document.getElementById('logoutForm').submit()">Uitloggen</a>
-            </li>
-        </ul>
-    </form>
-}
-else
-{
-    <ul class="nav navbar-nav">
-        <li>
-            @*Html.ActionLink("Registeer", "Register", "Account", routeValues: null,
-           htmlAttributes: new { id = "registerlink"})*@
-            <a id="registerLink" class="nav-link text-black-50" asp-action="Register" asp-controller="Account">Registreren</a>
-        </li>
-        <li>
-            @*Html.ActionLink("Login", "Login", "Account", routeValues: null,
-           htmlAttributes: new { id = "loginlink" })*@
-            <a id="loginLink" class="nav-link text-black-50" asp-action="Login" asp-controller="Account">Login</a>
-        </li>
-    </ul>
-}
+<ul class="nav navbar-nav">
+    <li>
+        <a id="vehicleRegisterLink" class="nav-link" asp-action="Index" asp-controller="Vehicle">Registreer Voertuig</a>
+    </li>
+</ul>
+                <form method="post" id="logoutForm" asp-action="Logoff" asp-controller="Account">
+                    <ul class="nav navbar-nav">
+                        <li id="welcomeText" class="nav-link">Welkom @User.Identity.Name</li>
+                        <li class="text-black">
+                            <a id="logoffLink" class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Uitloggen</a>
+                        </li>
+                    </ul>
+                </form>
+ }
+            else
+            {
+<ul class=" nav navbar-nav">
+    <li>
+        @*Html.ActionLink("Registreer", "Register", "Account", routeValues: null,
+            htmlAttributes: new { id = "registerLink" })*@
+        <a id="registerLink" class="nav-link" asp-action="Register" asp-controller="Account">Registreren</a>
+    </li>
+    <li>
+        @*Html.ActionLink("Login", "Login", "Account", routeValues: null,
+            htmlAttributes: new { id = "loginLink" })*@
+        <a id="loginLink" class="nav-link" asp-action="Login" asp-controller="Account">Inloggen</a>
+    </li>
+</ul>}

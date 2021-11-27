@@ -1,8 +1,46 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@inject Microsoft.AspNetCore.Identity.SignInManager<CCSB_Bentelo.Models.ApplicationUser> signinManager
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div id="container1">
+        <div id="leftBlueContainer"></div>
+        <div class="pictureDiv">
+            <img id="frontPicture" src="~/lib/Images/homepage.jpg" />
+            <div class="pictureText">Camper- en Caravanstalling Bentelo</div>
+        </div>
+        <div id="rightBlueContainer"></div>
+    </div>
+    <div id="container2">
+        <h3 id="container2Title">Over ons</h3>
+        <h4 id="container2Text">
+            Als u een plek zoekt voor het stallen van uw camper of caravan<br /> voor een lage prijs dan ben je bij ons op de juiste plek.<br />
+            We zijn een klein bedrijfje gelegen te Bentelo.<br /><br /> Het is begonnen als een pluimveebedrijf,<br />
+            maar door de strenge milieu regels werd het voor ons te duur.<br />
+            Inmiddels zijn de stallen omgebouwt en dienen ze als een stalling.<br />
+            We hebben al talloze tevreden klanten die elk jaar weer terugkeren om hun voertuig<br /> bij ons op te bergen.
+        </h4>
+    </div>
+    @if (signinManager.IsSignedIn(User))
+    {
+<div id="container3">
+    <h3 id="container3Title">Kosten</h3>
+    <h4 id="container3Text">De kosten voor het stallen van je camper of caravan is €45,- per meter in lengte.</h4>
+    <a id="appointmentLink" class="nav-link" asp-action="Index" asp-controller="AppointmentModels">Afspraken beheren</a>
+</div>}
+else
+{
+
+
+
+}
+</body>
+</html>
+@section Scripts{
+    <button>
+        <script src="~/js/script-custom-calendar.js"></script>
+    </button>
+}

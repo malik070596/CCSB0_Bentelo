@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace CCSB_Bentelo.Models.ViewModels
+namespace CCSB_Bentelo.Models
 {
     public class LoginViewModel
     {
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
-        [EmailAddress(ErrorMessage = "Dit is geen geldige e-mailadres.")]
+        [EmailAddress(ErrorMessage = "Dit is geen geldig e-mailadres")]
         [Display(Name = "E-mail")]
         public string Email { get; set; }
-
-
         [Required(ErrorMessage = "{0} is een verplicht veld.")]
         [DataType(DataType.Password)]
-        [Display(Name ="Wachtwoord")]
+        [Display(Name = "Wachtwoord")]
         public string Password { get; set; }
-        
-        [Display(Name ="Onthoud mij")]
+        [Display(Name = "Onthoud mij")]
         public bool RememberMe { get; set; }
     }
 }

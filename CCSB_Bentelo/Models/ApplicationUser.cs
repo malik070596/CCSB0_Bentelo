@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CCSB_Bentelo.Models
 {
-    public class ApplicationUser: IdentityUser
+    public class ApplicationUser : IdentityUser
     {
+
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
@@ -17,15 +18,19 @@ namespace CCSB_Bentelo.Models
             {
                 if (string.IsNullOrEmpty(MiddleName))
                 {
-                    return FirstName + " " + LastName; 
-            
+                    return FirstName + " " + LastName;
                 }
                 else
                 {
-                    return FirstName + " " + MiddleName + " " + LastName; 
+                    return FirstName + " " + MiddleName + " " + LastName;
                 }
+
             }
-        } 
-            
+
+        }
+
+        public string Address { get; set; }
+
+
     }
 }
