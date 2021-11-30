@@ -83,7 +83,7 @@ namespace CCSB_Bentelo.Controllers
                     await _signInManager.SignInAsync(user, isPersistent: false);
 
                     var message = new MimeMessage();
-                    message.From.Add(new MailboxAddress("Registratie", "ccsbcampersite@gmail.com"));
+                    message.From.Add(new MailboxAddress("Registratie", "ccsbBentelo@info.com"));
                     message.To.Add(new MailboxAddress(model.FirstName, model.Email));
                     message.Subject = "Bedankt voor het registreren";
                     message.Body = new TextPart("plain")
@@ -96,7 +96,7 @@ namespace CCSB_Bentelo.Controllers
                     using (var client = new SmtpClient())
                     {
                         client.Connect("smtp.gmail.com", 587, false);
-                        client.Authenticate("ccsbcampersite@gmail.com", "CCSB@123");
+                        client.Authenticate("ccsbBentelo@gmail.com", "CCSB@123");
 
                         client.Send(message);
 
